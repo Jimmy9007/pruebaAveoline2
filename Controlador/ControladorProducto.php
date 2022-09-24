@@ -94,7 +94,7 @@ if (!$_POST) {//formularios
         switch ($_POST['opcion']) {
             case 1:
                 if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg") {
-                    if ($_FILES['imagen']['size'] <= 200) {//200kb
+                    if ($_FILES['imagen']['size'] <= 200000) {//200kb
                         $producto = new Producto($_POST['Referencia'], $_POST['nombreProducto'], $_POST['observacion'], $_POST['precio'], $_POST['impuesto'], $_POST['cantidad'], $_POST['estado'], $_FILES['imagen']['name']);
                         if ($pdao->registrarProducto($producto)) {
                             if (file_exists($directorio)) {
